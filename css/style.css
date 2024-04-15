@@ -86,6 +86,11 @@ button {
     font-weight: 350;
 }
 
+.search-area input:hover {
+    border-color: var(--dark-gray);
+    box-shadow: 0.1vw 0.1vw 0.5vw rgb(180, 180, 180);
+}
+
 .search-area button {
     margin: 4.5vh 0;
     color: white;
@@ -95,18 +100,22 @@ button {
 
 #search-btn {
     background-color: var(--main-blue);
+    transition: 0.2s ease-in-out background-color;
 }
 
 #search-btn:hover {
     background-color: #2f56f1;
+    transition: 0.2s ease-in-out background-color;
 }
 
 #my-location-btn {
     background-color: var(--dark-gray);
+    transition: 0.2s ease-in-out background-color;
 }
 
 #my-location-btn:hover {
     background-color: #7f8a94;
+    transition: 0.2s ease-in-out background-color;
 }
 
 .result-area {
