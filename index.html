@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="./images/dashboard.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+    <title>Weather Dashboard</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="showing-area">
+        <div class="title-area">
+            <h1>Weather Dashboard</h1>
+        </div>
+        <div class="content-area">
+            <div class="search-area">
+                <h3>Enter a City Name</h3>
+                <input type="text" name="city-name" id="city-name" placeholder="E.g., New York, London, Tokyo"> <br>
+                <button type="button" id="search-btn">Search</button> <br>
+                <div class="separator">or</div>
+                <button type="button" id="my-location-btn">Use Current Location</button>
+            </div>
+            <div class="result-area">
+                <div class="weather-now">
+                    <div class="info">
+                        <h1><span id="location">London</span> <span id="date">(2023-06-19)</span></h1>
+                        <ul>
+                            <li>Temperature: 18.71&deg;C</li>
+                            <li>Wind: 4.31 M/S</li>
+                            <li>Humidity: 76%</li>
+                        </ul>
+                    </div>
+                    <div class="weather-icon">
+                        <img src="" alt="">
+                        <p>Moderate rain</p>
+                    </div>
+                </div>
+                <div class="weather-4-later">
+                    <h2>4-Day Forecast</h2>
+                    <div class="weather-flex">
+                        <div class="weather-later">
+                            <h4>(2023-06-20)</h4>
+                            <img src="" alt="">
+                            <ul>
+                                <li>Temp: 18.71&deg;C</li>
+                                <li>Wind: 4.31 M/S</li>
+                                <li>Humidity: 76%</li>
+                            </ul>
+                        </div>
+                        <div class="weather-later">
+                            <h4>(2023-06-20)</h4>
+                            <img src="" alt="">
+                            <ul>
+                                <li>Temp: 18.71&deg;C</li>
+                                <li>Wind: 4.31 M/S</li>
+                                <li>Humidity: 76%</li>
+                            </ul>
+                        </div>
+                        <div class="weather-later">
+                            <h4>(2023-06-20)</h4>
+                            <img src="" alt="">
+                            <ul>
+                                <li>Temp: 18.71&deg;C</li>
+                                <li>Wind: 4.31 M/S</li>
+                                <li>Humidity: 76%</li>
+                            </ul>
+                        </div>
+                        <div class="weather-later">
+                            <h4>(2023-06-20)</h4>
+                            <img src="" alt="">
+                            <ul>
+                                <li>Temp: 18.71&deg;C</li>
+                                <li>Wind: 4.31 M/S</li>
+                                <li>Humidity: 76%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+:root {
+    --main-blue: #5372F0;
+    --dark-gray: #6C757D;
+    --background: #E3F2FD;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.5vw;
+}
+
+li {
+    list-style: none;
+}
+
+.showing-area {
+    background-color: var(--background);
+}
+
+.title-area {
+    background-color: var(--main-blue);
+    text-align: center;
+    padding: 3.5vh;
+}
+
+.title-area h1 {
+    font-size: 2.2vw;
+    font-weight: 500;
+    color: white;
+}
+
+.content-area {
+    color: black;
+    padding: 8vh 4vw;
+    display: flex;
+    gap: 5%;
+}
+
+.search-area {
+    width: 35%;
+}
+
+.search-area h3 {
+    color: black;
+    font-weight: 500;
+    margin-bottom: 2vh;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: gray;
+    font-weight: 350;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 0.2vh solid gray;
+}
+
+.separator:not(:empty)::before {
+    margin-right: 1.5vw;
+}
+
+.separator:not(:empty)::after {
+    margin-left: 1.5vw;
+}
+
+.search-area input,
+button {
+    width: 100%;
+    padding: 2.2vh 1.5vw;
+    border-radius: 0.3vw;
+    border-width: 0.2vh;
+    border-color: gray;
+    font-weight: 350;
+}
+
+.search-area button {
+    margin: 4.5vh 0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#search-btn {
+    background-color: var(--main-blue);
+}
+
+#search-btn:hover {
+    background-color: #2f56f1;
+}
+
+#my-location-btn {
+    background-color: var(--dark-gray);
+}
+
+#my-location-btn:hover {
+    background-color: #7f8a94;
+}
+
+.result-area {
+    width: 70%;
+    color: white;
+}
+
+.weather-now {
+    background-color: var(--main-blue);
+    padding: 2.5vw;
+    border-radius: 0.5vw;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4vh;
+}
+
+.weather-now .info span {
+    font-size: 1.8vw;
+    font-weight: 500;
+    color: white;
+}
+
+.weather-now .info ul {
+    margin-top: 3vh;
+}
+
+.weather-now .info li:not(:last-child) {
+    margin-bottom: 2.5vh;
+}
+
+.weather-4-later h2 {
+    color: black;
+    font-weight: 500;
+    font-size: 1.9vw;
+    margin-bottom: 4vh;
+}
+
+.weather-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-later {
+    background-color: var(--dark-gray);
+    padding: 1.5vw;
+    width: 23%;
+    border-radius: 0.5vw;
+}
+
+.weather-later h4 {
+    font-weight: 500;
+}
+
+.weather-later li:not(:last-child) {
+    margin-bottom: 1.5vh;
+}
