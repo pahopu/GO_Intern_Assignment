@@ -1,0 +1,19 @@
+{
+  "name": "go_intern_assignment",
+  "version": "1.0.0",
+  "description": "This repository is about an assignment when I'm interviewing at Golden Owl Solutions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "Pham Hoang Phuc",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
