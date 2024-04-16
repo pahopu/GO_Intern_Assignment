@@ -80,13 +80,14 @@ li {
 button {
     width: 100%;
     padding: 2.2vh 1.5vw;
+    outline: none;
     border-radius: 0.3vw;
     border-width: 0.2vh;
     border-color: gray;
     font-weight: 350;
 }
 
-.search-area input:hover {
+.search-area input:focus {
     border-color: var(--dark-gray);
     box-shadow: 0.1vw 0.1vw 0.5vw rgb(180, 180, 180);
 }
@@ -172,5 +173,24 @@ h1 {
 }
 
 .weather-later li:not(:last-child) {
-    margin-bottom: 1.5vh;
+    margin-bottom: 2.5vh;
+}
+
+.weather-icon {
+    width: 20%;
+}
+
+.weather-icon img{
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.weather-icon p{
+    text-align: center;
+}
+
+.weather-later img {
+    margin: 2.5vh 0;
 }
