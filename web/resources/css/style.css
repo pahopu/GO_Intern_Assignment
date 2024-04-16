@@ -132,7 +132,8 @@ button {
     margin-bottom: 4vh;
 }
 
-.weather-now .info span {
+.weather-now .info .head,
+h1 {
     font-size: 1.8vw;
     font-weight: 500;
     color: white;
@@ -165,7 +166,8 @@ button {
     border-radius: 0.5vw;
 }
 
-.weather-later h4 {
+.weather-later h4,
+.head {
     font-weight: 500;
 }
 
