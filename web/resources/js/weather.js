@@ -14,6 +14,7 @@ const coords = {
     'lat': undefined,
     'long': undefined
 }
+getLocation();
 
 function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition);
