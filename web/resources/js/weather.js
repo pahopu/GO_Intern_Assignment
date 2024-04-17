@@ -30,12 +30,26 @@ baseURL = 'https://go-intern-assignment.onrender.com/'
 
 fetch(baseURL)
     .then(res => { return res.json() })
-    .then(data => getData(data));
+    .then(data => {
+        const loader = document.querySelector(".loader");
+        loader.classList.remove("loader-hidden");
+        getData(data)
+        loader.classList.add("loader-hidden");
+        loader.addEventListener("transitionend", () => {
+            document.body.removeChild("loader");
+        })
+    });
 
 searchBtn.addEventListener("click", getInfo);
 
 input.addEventListener("change", () => {
     anounce.style.display = "none";
+})
+
+input.addEventListener("keypress", (e) => {
+    if (e.key === 'Enter') {
+        getInfo(e);
+    }
 })
 
 function getData(data) {
@@ -65,6 +79,8 @@ function getData(data) {
 }
 
 async function getInfo(e) {
+    const loader = document.querySelector(".loader");
+    loader.classList.remove("loader-hidden")
     e.preventDefault();
     anounce.style.display = "none";
     if (input.value == "") {
@@ -75,15 +91,25 @@ async function getInfo(e) {
         const data = await res.json();
         getData(data);
     }
+    loader.classList.add("loader-hidden")
+    loader.addEventListener("transitionend", () => {
+        document.body.removeChild("loader");
+    })
 }
 
 currLocationBtn.addEventListener("click", getCurr);
 
 async function getCurr(e) {
+    const loader = document.querySelector(".loader");
+    loader.classList.remove("loader-hidden")
     e.preventDefault();
     getLocation();
     console.log(coords);
     const res = await fetch(baseURL + `currentLocation?lat=${coords.lat}&long=${coords.long}`);
     const data = await res.json();
     getData(data);
+    loader.classList.add("loader-hidden")
+    loader.addEventListener("transitionend", () => {
+        document.body.removeChild("loader");
+    })
 }
