@@ -17,6 +17,6 @@ We will run for Frontend and Backend so that we can search the weather of a city
 2. Open terminal and install `express` by the line `npm install --save express`
 3. Run server by the line `cd server | node server.js` for the first time. The next time, you only need to enter `node server.js` if you want to run server again.
 
-## Demo link
+# Demo link
 * Frontend: https://go-intern-assignment.vercel.app/
 * Backend: https://go-intern-assignment.onrender.com/
