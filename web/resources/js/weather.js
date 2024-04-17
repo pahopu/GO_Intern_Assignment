@@ -3,13 +3,14 @@ const currLocationBtn = document.getElementById("my-location-btn");
 const input = document.getElementById("city-name");
 
 const locate = document.getElementById("locate");
+const wtext = document.getElementById("wtext")
+const anounce = document.getElementById('error-anounce');
+
 const dates = document.querySelectorAll(".date");
 const temps = document.querySelectorAll(".temp");
 const winds = document.querySelectorAll(".wind");
 const humids = document.querySelectorAll(".humid");
-const wtext = document.getElementById("wtext")
 const icons = document.querySelectorAll(".icon")
-const anounce = document.getElementById('error-anounce');
 
 const coords = {
     'lat': undefined,
@@ -33,7 +34,9 @@ fetch(baseURL)
     .then(data => {
         const loader = document.querySelector(".loader");
         loader.classList.remove("loader-hidden");
+
         getData(data)
+
         loader.classList.add("loader-hidden");
         loader.addEventListener("transitionend", () => {
             document.body.removeChild("loader");
@@ -81,8 +84,10 @@ function getData(data) {
 async function getInfo(e) {
     const loader = document.querySelector(".loader");
     loader.classList.remove("loader-hidden")
+
     e.preventDefault();
     anounce.style.display = "none";
+
     if (input.value == "") {
         anounce.innerText = "You have not entered a city name";
         anounce.style.display = "block";
@@ -91,6 +96,7 @@ async function getInfo(e) {
         const data = await res.json();
         getData(data);
     }
+
     loader.classList.add("loader-hidden")
     loader.addEventListener("transitionend", () => {
         document.body.removeChild("loader");
@@ -102,12 +108,17 @@ currLocationBtn.addEventListener("click", getCurr);
 async function getCurr(e) {
     const loader = document.querySelector(".loader");
     loader.classList.remove("loader-hidden")
+
     e.preventDefault();
+    anounce.style.display = "none";
+
     getLocation();
-    console.log(coords);
+
     const res = await fetch(baseURL + `currentLocation?lat=${coords.lat}&long=${coords.long}`);
     const data = await res.json();
+
     getData(data);
+
     loader.classList.add("loader-hidden")
     loader.addEventListener("transitionend", () => {
         document.body.removeChild("loader");

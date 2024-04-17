@@ -76,7 +76,7 @@ li {
     margin-left: 1.5vw;
 }
 
-#error-anounce{
+#error-anounce {
     color: red;
     font-weight: 450;
     font-style: italic;
@@ -189,14 +189,14 @@ h1 {
     width: 17%;
 }
 
-.weather-icon img{
+.weather-icon img {
     width: 80%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.weather-icon p{
+.weather-icon p {
     text-align: center;
 }
 
@@ -237,8 +237,8 @@ h1 {
     from {
         transform: rotate(0turn);
     }
+
     to {
         transform: rotate(1turn);
     }
 }
-
