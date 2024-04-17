@@ -10,7 +10,21 @@ const humids = document.querySelectorAll(".humid");
 const wtext = document.getElementById("wtext")
 const icons = document.querySelectorAll(".icon")
 
-baseURL = 'http://localhost:3000/'
+const coords = {
+    'lat': undefined,
+    'long': undefined
+}
+
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+function showPosition(position) {
+    coords.lat = position.coords.latitude;
+    coords.long = position.coords.longitude;
+}
+
+baseURL = 'https://go-intern-assignment.onrender.com/'
 
 searchBtn.addEventListener("click", getInfo);
 
@@ -41,26 +55,13 @@ async function getInfo(e) {
     getData(data);
 }
 
-coords = {
-    'lat': undefined,
-    'long': undefined
-}
-getLocation();
-
 currLocationBtn.addEventListener("click", getCurr);
-
-function getLocation() {
-    navigator.geolocation.getCurrentPosition(showPosition);
-}
-
-function showPosition(position) {
-    coords.lat = position.coords.latitude;
-    coords.long = position.coords.longitude;
-}
 
 async function getCurr(e) {
     e.preventDefault();
     getLocation();
+    console.log(coords);
     const res = await fetch(baseURL + `currentLocation?lat=${coords.lat}&long=${coords.long}`);
     const data = await res.json();
+    getData(data);
 }

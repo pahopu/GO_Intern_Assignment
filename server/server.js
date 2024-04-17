@@ -23,8 +23,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/:dynamic', (req, res) => {
-    let { dynamic } = req.params;
+    const { dynamic } = req.params;
+    let url = '';
     if (dynamic == "currentLocation") {
+        const { lat, long } = req.query;
+        url = `http://api.weatherapi.com/v1/forecast.json?key=4e44dfbe320f4cb6b1725617241604&q=${lat},${long}&days=5&aqi=no&alerts=no`;
     }
     else url = `http://api.weatherapi.com/v1/forecast.json?key=4e44dfbe320f4cb6b1725617241604&q=${dynamic}&days=5&aqi=no&alerts=no`;
     fetch(url)
@@ -34,5 +37,5 @@ app.get('/:dynamic', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Weather server is listening on port ${port}`)
 })
