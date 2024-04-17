@@ -76,6 +76,15 @@ li {
     margin-left: 1.5vw;
 }
 
+#error-anounce{
+    color: red;
+    font-weight: 450;
+    font-style: italic;
+    font-size: 1.3vw;
+    margin-top: 1vh;
+    display: none;
+}
+
 .search-area input,
 button {
     width: 100%;

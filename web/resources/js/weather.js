@@ -9,6 +9,7 @@ const winds = document.querySelectorAll(".wind");
 const humids = document.querySelectorAll(".humid");
 const wtext = document.getElementById("wtext")
 const icons = document.querySelectorAll(".icon")
+const anounce = document.getElementById('error-anounce');
 
 const coords = {
     'lat': undefined,
@@ -28,36 +29,52 @@ function showPosition(position) {
 baseURL = 'https://go-intern-assignment.onrender.com/'
 
 fetch(baseURL)
-.then(res => {return res.json()})
-.then(data => getData(data));
+    .then(res => { return res.json() })
+    .then(data => getData(data));
 
 searchBtn.addEventListener("click", getInfo);
 
+input.addEventListener("change", () => {
+    anounce.style.display = "none";
+})
+
 function getData(data) {
-    locate.innerText = data["location"]["name"];
-    dates.forEach((date, i) => {
-        date.innerText = data["forecast"]["forecastday"][i]["date"];
-    })
-    temps.forEach((temp, i) => {
-        temp.innerText = data["forecast"]["forecastday"][i]["day"]["avgtemp_c"];
-    })
-    winds.forEach((wind, i) => {
-        wind.innerText = (data["forecast"]["forecastday"][i]["day"]["maxwind_kph"] / 3.6).toFixed(2);
-    })
-    humids.forEach((humid, i) => {
-        humid.innerText = data["forecast"]["forecastday"][i]["day"]["avghumidity"];
-    })
-    wtext.innerText = data["forecast"]["forecastday"][0]["day"]["condition"]["text"];
-    icons.forEach((icon, i) => {
-        icon.setAttribute("src", data["forecast"]["forecastday"][i]["day"]["condition"]["icon"])
-    })
+    if (data.hasOwnProperty('error')) {
+        anounce.innerText = "The city name you just entered does not exist";
+        anounce.style.display = "block";
+    }
+    else {
+        locate.innerText = data["location"]["name"];
+        dates.forEach((date, i) => {
+            date.innerText = data["forecast"]["forecastday"][i]["date"];
+        })
+        temps.forEach((temp, i) => {
+            temp.innerText = data["forecast"]["forecastday"][i]["day"]["avgtemp_c"];
+        })
+        winds.forEach((wind, i) => {
+            wind.innerText = (data["forecast"]["forecastday"][i]["day"]["maxwind_kph"] / 3.6).toFixed(2);
+        })
+        humids.forEach((humid, i) => {
+            humid.innerText = data["forecast"]["forecastday"][i]["day"]["avghumidity"];
+        })
+        wtext.innerText = data["forecast"]["forecastday"][0]["day"]["condition"]["text"];
+        icons.forEach((icon, i) => {
+            icon.setAttribute("src", data["forecast"]["forecastday"][i]["day"]["condition"]["icon"])
+        })
+    }
 }
 
 async function getInfo(e) {
     e.preventDefault();
-    const res = await fetch(baseURL + input.value);
-    const data = await res.json();
-    getData(data);
+    anounce.style.display = "none";
+    if (input.value == "") {
+        anounce.innerText = "You have not entered a city name";
+        anounce.style.display = "block";
+    } else {
+        const res = await fetch(baseURL + input.value);
+        const data = await res.json();
+        getData(data);
+    }
 }
 
 currLocationBtn.addEventListener("click", getCurr);
