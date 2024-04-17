@@ -14,6 +14,14 @@ function showPosition(position) {
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+    url = `http://api.weatherapi.com/v1/forecast.json?key=4e44dfbe320f4cb6b1725617241604&q=Ho Chi Minh City&days=5&aqi=no&alerts=no`;
+    fetch(url)
+        .then(res => { return res.json() })
+        .then(data => res.json(data))
+        .catch(error => res.json(error))
+})
+
 app.get('/:dynamic', (req, res) => {
     let { dynamic } = req.params;
     if (dynamic == "currentLocation") {
