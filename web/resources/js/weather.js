@@ -26,6 +26,10 @@ function showPosition(position) {
 
 baseURL = 'https://go-intern-assignment.onrender.com/'
 
+fetch(baseURL)
+.then(res => {return res.json()})
+.then(data => getData(data));
+
 searchBtn.addEventListener("click", getInfo);
 
 function getData(data) {
