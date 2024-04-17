@@ -1,5 +1,6 @@
 # Weather Forecast Dashboard
 In this assignment, I used HTML, CSS and Javascript for Frontend and Node.js for Backend. This is a picture about my simple website.
+![weatherforecastweb](./web/resources/images/weather-forecast-picture.png)
 
 # How to run project locally
 We will run for Frontend and Backend so that we can search the weather of a city. All of them will be executed on VSCode.
