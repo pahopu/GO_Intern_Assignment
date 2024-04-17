@@ -202,4 +202,6 @@ h1 {
 
 .weather-later img {
     margin: 2.5vh 0;
+    height: 10vh;
+    width: 4.5vw;
 }
