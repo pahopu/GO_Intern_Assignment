@@ -1,6 +1,5 @@
 import express from 'express'; // Import the express module
 import cors from 'cors'; // Import the cors module
-import fetch from 'node-fetch'; // Import the fetch module
 
 const app = express(); // Create an instance of the express application
 const port = 3000; // Set the port number for the server
