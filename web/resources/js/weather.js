@@ -39,9 +39,6 @@ fetch(baseURL) // Fetch data from the API
         getData(data); // Call the function to process the data
 
         loader.classList.add("loader-hidden"); // Add the "loader-hidden" class to hide the loader
-        loader.addEventListener("transitionend", () => {
-            document.body.removeChild("loader"); // Remove the loader element from the DOM
-        });
     });
 
 searchBtn.addEventListener("click", getInfo); // Add click event listener to search button
@@ -99,9 +96,6 @@ async function getInfo(e) {
     }
 
     loader.classList.add("loader-hidden"); // Add the "loader-hidden" class to hide the loader
-    loader.addEventListener("transitionend", () => {
-        document.body.removeChild("loader"); // Remove the loader element from the DOM
-    });
 }
 
 currLocationBtn.addEventListener("click", getCurr); // Add click event listener to current location button
@@ -121,9 +115,6 @@ async function getCurr(e) {
     getData(data); // Call the function to process the data
 
     loader.classList.add("loader-hidden"); // Add the "loader-hidden" class to hide the loader
-    loader.addEventListener("transitionend", () => {
-        document.body.removeChild("loader"); // Remove the loader element from the DOM
-    });
 }
 
 const subscribeBtn = document.getElementById("subscribe-btn"); // Get the subscribe button element
