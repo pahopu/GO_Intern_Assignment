@@ -58,7 +58,7 @@ app.post('/send-email', async (req, res) => {
     });
 
     let mailOptions = {
-        from: 'your-email@gmail.com',
+        from: 'weatherforecast172@gmail.com',
         to: email,
         subject: subject,
         text: text
