@@ -2,6 +2,7 @@
     --main-blue: #5372F0;
     --dark-gray: #6C757D;
     --background: #E3F2FD;
+    --red-light: #ff3d58;
 }
 
 * {
@@ -241,4 +242,41 @@ h1 {
     to {
         transform: rotate(1turn);
     }
+}
+
+.subscription-area p {
+    font-size: 1.3vw;
+    font-weight: 100;
+    margin: 2vh 0;
+    text-align: justify;
+    font-style: italic;
+}
+
+.subscription-area .subscribe-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subscription-area button {
+    width: 45%;
+}
+
+#subscribe-btn {
+    background-color: var(--red-light);
+    transition: 0.2s ease-in-out background-color;
+}
+
+#subscribe-btn:hover {
+    background-color: #FF243A;
+    transition: 0.2s ease-in-out background-color;
+}
+
+#unsubscribe-btn {
+    background-color: var(--main-blue);
+    transition: 0.2s ease-in-out background-color;
+}
+
+#unsubscribe-btn:hover {
+    background-color: #2f56f1;
+    transition: 0.2s ease-in-out background-color;
 }
