@@ -17,6 +17,7 @@ app.get('/', (_req, res) => { // Handle GET requests to the root endpoint
         .then(data => {
             weatherHistory = data; // Save weather data to the variable
             res.json(data); // Send weather data as response
+            nameOfCity = data.location.name;
         })
         .catch(error => res.json(error)); // Handle any errors that occur during the process
 });
@@ -38,6 +39,7 @@ app.get('/:dynamic', (req, res) => { // Handle GET requests with dynamic route p
             .then(data => {
                 weatherHistory = data; // Save weather data to the variable
                 res.json(data); // Send weather data as response
+                nameOfCity = data.location.name;
             })
             .catch(error => res.json(error)); // Handle any errors that occur during the process
     }
