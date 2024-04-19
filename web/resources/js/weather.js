@@ -131,7 +131,7 @@ function subscribe() {
         return;
     }
 
-    fetch('/send-email', {
+    fetch(baseURL + 'send-email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -160,7 +160,7 @@ function unsubscribe() {
         return;
     }
 
-    fetch('/send-email', {
+    fetch(baseURL + 'send-email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
