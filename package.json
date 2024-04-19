@@ -17,5 +17,6 @@
     "cors": "^2.8.5",
     "express": "^4.19.2"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "type": "module"
 }
