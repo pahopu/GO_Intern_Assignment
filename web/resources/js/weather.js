@@ -12,6 +12,7 @@ const winds = document.querySelectorAll(".wind"); // Get all elements with class
 const humids = document.querySelectorAll(".humid"); // Get all elements with class "humid"
 const icons = document.querySelectorAll(".icon"); // Get all elements with class "icon"
 
+let nameOfCity = undefined;
 const coords = {
     lat: undefined,
     long: undefined
@@ -61,6 +62,7 @@ function getData(data) {
         anounce.style.display = "block"; // Show the error message
     } else {
         locate.innerText = data["location"]["name"]; // Display the location name
+        nameOfCity = data["location"]["name"]; // Store the location name in a variable
         dates.forEach((date, i) => {
             date.innerText = data["forecast"]["forecastday"][i]["date"]; // Display the date for each forecast day
         });
@@ -122,4 +124,69 @@ async function getCurr(e) {
     loader.addEventListener("transitionend", () => {
         document.body.removeChild("loader"); // Remove the loader element from the DOM
     });
+}
+
+const subscribeBtn = document.getElementById("subscribe-btn"); // Get the subscribe button element
+const unsubscribeBtn = document.getElementById("unsubscribe-btn"); // Get the unsubscribe button element
+const emailInput = document.getElementById("email"); // Get the email input element
+
+subscribeBtn.addEventListener("click", subscribe); // Add click event listener to subscribe button
+unsubscribeBtn.addEventListener("click", unsubscribe); // Add click event listener to unsubscribe button
+
+function subscribe() {
+    const email = emailInput.value;
+    if (email === "") {
+        alert("Please enter your email");
+        return;
+    }
+
+    fetch('/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            subject: 'Subscription Confirmation',
+            text: `You have subscribed for daily weather forecast of ${nameOfCity}`
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'Email sent') {
+                alert(`You have subscribed for daily weather forecast of ${nameOfCity}`);
+                emailInput.value = "";
+            } else {
+                alert('Failed to send email');
+            }
+        });
+}
+
+function unsubscribe() {
+    const email = emailInput.value;
+    if (email === "") {
+        alert("Please enter your email");
+        return;
+    }
+
+    fetch('/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            subject: 'Unsubscription Confirmation',
+            text: `You have unsubscribed from daily weather forecast of ${nameOfCity}`
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'Email sent') {
+                alert(`You have unsubscribed from daily weather forecast of ${nameOfCity}`);
+                emailInput.value = "";
+            } else {
+                alert('Failed to send email');
+            }
+        });
 }

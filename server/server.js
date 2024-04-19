@@ -1,10 +1,12 @@
 import express from 'express'; // Import the express module
 import cors from 'cors'; // Import the cors module
+import nodemailer from 'nodemailer'; // Import the nodemailer module
 
 const app = express(); // Create an instance of the express application
 const port = 3000; // Set the port number for the server
 
 app.use(cors()); // Enable CORS for the server
+app.use(express.json()); // for parsing application/json
 
 let weatherHistory = null; // Variable to store weather history temporarily
 let nameOfCity = null;
@@ -41,6 +43,32 @@ app.get('/:dynamic', (req, res) => { // Handle GET requests with dynamic route p
                 nameOfCity = data.location.name;
             })
             .catch(error => res.json(error)); // Handle any errors that occur during the process
+    }
+});
+
+app.post('/send-email', async (req, res) => {
+    let { email, subject, text } = req.body;
+
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'weatherforecast172@gmail.com',
+            pass: 'WeatherGo123'
+        }
+    });
+
+    let mailOptions = {
+        from: 'your-email@gmail.com',
+        to: email,
+        subject: subject,
+        text: text
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.json({ status: 'Email sent' });
+    } catch (error) {
+        res.json({ status: 'Failed to send email', error: error.toString() });
     }
 });
 
